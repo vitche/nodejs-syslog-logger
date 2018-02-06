@@ -1,0 +1,13 @@
+{
+	"name": "nodejs-syslog-logger",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"scripts": {
+		"start": "node test.js"
+	},
+	"dependencies": {
+		"dotenv": "^5.0.0",
+		"syslog-client": "^1.1.1"
+	}
+}
