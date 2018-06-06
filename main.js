@@ -12,10 +12,20 @@ module.exports.log = function() {
 		facility: syslog.Facility.Daemon,
 		severity: syslog.Severity.Critical
 	}, function(error) {
+		// Do not call "console" methods when they were overriden
+		if (module.exports.log == console.log || module.exports.log == console.error) {
+			return;
+		}
 		if (error) {
 			console.error(error);
 		} else {
 			console.log(message);
 		}
-	});		
+	});
+};
+module.exports.replaceConsoleError = function () {
+	console.error = module.exports.log;
+};
+module.exports.replaceConsoleLog = function () {
+	console.log = module.exports.log;
 };
