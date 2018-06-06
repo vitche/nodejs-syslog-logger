@@ -13,7 +13,7 @@ module.exports.log = function() {
 		severity: syslog.Severity.Critical
 	}, function(error) {
 		// Do not call "console" methods when they were overriden
-		if (module.exports.log == console.log || module.exports.log == console.error) {
+		if (module.exports.log === console.log || module.exports.log === console.error) {
 			return;
 		}
 		if (error) {
